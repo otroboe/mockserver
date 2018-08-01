@@ -1,0 +1,40 @@
+{
+  "prefix": "/regex",
+  "urls": [{
+    "request": {
+      "pattern": "/[0-9]+",
+      "method": "GET"
+    },
+    "response": {
+      "status": 200,
+      "random": {
+        "type": "Object",
+        "entity": [{
+          "name": "id",
+          "method": "random.uuid"
+        }, {
+          "name": "name",
+          "method": "name.findName"
+        }]
+      }
+    }
+  }, {
+    "request": {
+      "pattern": "/article*",
+      "method": "GET"
+    },
+    "response": {
+      "status": 200,
+      "random": {
+        "type": "Object",
+        "entity": [{
+          "name": "id",
+          "method": "random.number"
+        }, {
+          "name": "description",
+          "method": "lorem.lines"
+        }]
+      }
+    }
+  }]
+}

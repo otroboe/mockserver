@@ -1,0 +1,50 @@
+{
+  "prefix": "/random",
+  "urls": [{
+    "request": {
+      "pattern": "",
+      "method": "GET"
+    },
+    "response": {
+      "status": 200,
+      "random": {
+        "type": "Array",
+        "amount": 10,
+        "entity": [{
+          "name": "id",
+          "method": "random.uuid"
+        }, {
+          "name": "name",
+          "method": "name.findName"
+        }, {
+          "name": "phone",
+          "method": "phone.phoneNumberFormat"
+        }, {
+          "name": "test",
+          "value": true
+        }]
+      }
+    }
+  }, {
+    "request": {
+      "pattern": "",
+      "method": "POST",
+      "bodyParams": {
+        "name": "John Smith"
+      }
+    },
+    "response": {
+      "status": 201,
+      "random": {
+        "type": "Object",
+        "entity": [{
+          "name": "id",
+          "method": "random.uuid"
+        }, {
+          "name": "name",
+          "value": "John Smith"
+        }]
+      }
+    }
+  }]
+}

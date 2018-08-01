@@ -1,0 +1,110 @@
+{
+  "prefix": "/example",
+  "urls": [{
+    "async": 1000,
+    "request": {
+      "pattern": "",
+      "method": "GET",
+      "queryParams": {
+        "offset": "0",
+        "limit": "10"
+      }
+    },
+    "response": {
+      "status": 200,
+      "body": [{
+        "id": 1,
+        "title": "Example 1"
+      }, {
+        "id": 2,
+        "title": "Example 2"
+      }]
+    }
+  }, {
+    "request": {
+      "pattern": "/forbidden",
+      "method": "GET"
+    },
+    "response": {
+      "status": 403
+    }
+  }, {
+    "request": {
+      "pattern": "",
+      "method": "POST",
+      "bodyParams": {
+        "title": "Create example"
+      }
+    },
+    "response": {
+      "status": 201,
+      "body": {
+        "id": 3,
+        "title": "Create example"
+      }
+    }
+  }, {
+    "request": {
+      "pattern": "",
+      "method": "POST"
+    },
+    "response": {
+      "status": 400
+    }
+  }, {
+    "request": {
+      "pattern": "/3",
+      "method": "PUT",
+      "bodyParams": {
+        "title": "Updated example"
+      }
+    },
+    "response": {
+      "status": 200,
+      "body": {
+        "id": 3,
+        "title": "Updated example"
+      }
+    }
+  }, {
+    "request": {
+      "pattern": "/42",
+      "method": "PUT",
+      "bodyParams": {
+        "title": "Unknown example"
+      }
+    },
+    "response": {
+      "status": 404
+    }
+  }, {
+    "request": {
+      "pattern": "/3",
+      "method": "DELETE"
+    },
+    "response": {
+      "status": 204
+    }
+  }, {
+    "request": {
+      "pattern": "/1",
+      "method": "DELETE"
+    },
+    "response": {
+      "status": 403
+    }
+  }, {
+    "request": {
+      "pattern": "/text",
+      "method": "GET"
+    },
+    "response": {
+      "status": 200,
+      "headers": {
+        "Content-Type": "text/plain",
+        "Access-Control-Allow-Origin": "*"
+      },
+      "body": "My full response in Text"
+    }
+  }]
+}
