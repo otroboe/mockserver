@@ -49,12 +49,14 @@ class ResponseGenerator {
   generateEntity(entityConfig) {
     const entity = {};
     let methodName;
+    let methodParams;
 
     entityConfig.forEach((propConfig) => {
       methodName = _.get(faker, propConfig.method);
+      methodParams = Array.isArray(propConfig.params) ? propConfig.params : [];
 
       if (_.isFunction(methodName)) {
-        entity[propConfig.name] = methodName();
+        _.set(entity, propConfig.name, methodName(...methodParams));
       } else if (propConfig.value !== undefined) {
         entity[propConfig.name] = propConfig.value;
       }
